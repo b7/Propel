@@ -309,7 +309,7 @@ class RelationMap
   {
   	$localMapping = array($this->getLeftColumns(), $this->getRightColumns());
   	foreach ($this->getRightTable()->getRelations() as $relation) {
-  		if ($localMapping == array($relation->getRightColumns(), $relation->getLeftColumns())) {
+  		if ($localMapping === array($relation->getRightColumns(), $relation->getLeftColumns())) { // === fixed: Fatal error:  Nesting level too deep - recursive dependency? 
   			return $relation;
   		}
   	}
