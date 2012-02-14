@@ -312,11 +312,13 @@ class Table extends ScopedElement implements IDMethod
 	private function getStdSeparatedName()
 	{
 		if ($this->schema && $this->getBuildProperty('schemaAutoPrefix')) {
-			return $this->schema . NameGenerator::STD_SEPARATOR_CHAR . $this->getCommonName();
+			//return $this->schema . NameGenerator::STD_SEPARATOR_CHAR . $this->getCommonName();
+      			return $this->schema . NameGenerator::STD_SEPARATOR_CHAR . $this->getAttribute("name");
 		} else {
-			return $this->getCommonName();
+      			// return $this->getCommonName();
+      			return $this->getAttribute("name");
 		}
-	}
+	}	
 
 	/**
 	 * Sets up the Rule object based on the attributes that were passed to loadFromXML().
